@@ -1,0 +1,12 @@
+<h1>Home</h1>
+
+<%= form_with(scope: :search, url: static_pages_path, method: "get") do |form| %>
+    <%= form.text_field :id %>
+    <%= form.submit %>
+<% end %>
+
+<% if @render_result %>
+   <% @photos.each do |photo| %>
+        <img src="<%= Flickr.url(photo) %>">
+    <% end %>
+<% end %>
